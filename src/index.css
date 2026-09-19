@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-darkbg: #0b1120;
+  --color-cardbg: #0f172a;
+  --color-accent: #06b6d4;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #0b1120;
+    color: #f1f5f9;
+  }
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.glass-card-interactive {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.2);
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 10mm;
+  }
+  
+  html, body {
+    background: white !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-presentation-deck, #printable-presentation-deck * {
+    visibility: visible;
+  }
+
+  #printable-presentation-deck {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white !important;
+  }
+
+  .print-slide-page {
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    min-height: 100vh;
+    padding: 12mm !important;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Support legacy resume print if element exists */
+  #printable-resume-paper, #printable-resume-paper * {
+    visibility: visible;
+  }
+  #printable-resume-paper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20mm;
+    box-shadow: none;
+    border: none;
+    background: white !important;
+    color: black !important;
+  }
+}

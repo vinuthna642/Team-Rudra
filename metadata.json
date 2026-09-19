@@ -1,0 +1,8 @@
+{
+  "name": "Remix P. SVVS Naga Vinuthna Portfolio",
+  "description": "Interactive portfolio and live pitch deck for SmartSoil & Crop Care Kisan AI Assistant with complete 8-slide presentation and PDF/PPT export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
